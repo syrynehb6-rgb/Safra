@@ -196,58 +196,58 @@ export function App() {
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '0.85rem',
+            gap: '0.6rem',
           }}
         >
-          <SafraLogo size={42} />
+          <SafraLogo size={38} />
 
-          {/* Global Country Selector */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flex: '1 1 240px', maxWidth: '340px' }}>
-            <Globe size={18} color="var(--primary)" style={{ flexShrink: 0 }} />
-            <select
-              aria-label="Choisir le pays ou la ville"
-              className="safra-select"
-              style={{ fontWeight: 700, padding: '0.45rem 0.75rem' }}
-              value={selectedCountryId}
-              onChange={(e) => {
-                setSelectedCountryId(e.target.value);
-                setActiveTab('explore');
-              }}
-            >
-              {DESTINATIONS.map((d) => (
-                <option key={d.id} value={d.id}>
-                  {d.flag} {d.country} — {d.city}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
             <span className="badge badge-success" title="Portefeuille Safra">
-              <Wallet size={13} /> {walletBalance} TND
+              <Wallet size={12} /> {walletBalance} TND
             </span>
             <span className="badge badge-accent" title="Points de Confiance">
-              <Star size={13} fill="currentColor" /> {starsCount} Étoiles
+              <Star size={12} fill="currentColor" /> {starsCount} Étoiles
             </span>
             <button
               type="button"
               className={isVerified ? 'btn btn-ghost' : 'btn btn-primary'}
-              style={{ padding: '0.42rem 0.8rem', fontSize: '0.8rem' }}
+              style={{ padding: '0.38rem 0.7rem', fontSize: '0.76rem' }}
               onClick={() => kycDialogRef.current?.showModal()}
             >
-              <ShieldCheck size={15} />
-              {isVerified ? `Vérifié (${verifiedName})` : 'Vérifier CIN / Passeport'}
+              <ShieldCheck size={14} />
+              {isVerified ? `Vérifié (${verifiedName})` : 'Vérifier CIN'}
             </button>
             <button
               type="button"
               className="btn btn-ghost"
-              style={{ padding: '0.45rem 0.65rem' }}
+              style={{ padding: '0.38rem 0.55rem' }}
               aria-label="Préférences d'apparence"
               onClick={() => settingsDialogRef.current?.showModal()}
             >
-              <Settings size={16} />
+              <Settings size={15} />
             </button>
           </div>
+        </div>
+
+        {/* Country Selector Bar */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginTop: '0.55rem' }}>
+          <Globe size={16} color="var(--primary)" style={{ flexShrink: 0 }} />
+          <select
+            aria-label="Choisir le pays ou la ville"
+            className="safra-select"
+            style={{ fontWeight: 700, padding: '0.42rem 0.7rem', fontSize: '0.86rem' }}
+            value={selectedCountryId}
+            onChange={(e) => {
+              setSelectedCountryId(e.target.value);
+              setActiveTab('explore');
+            }}
+          >
+            {DESTINATIONS.map((d) => (
+              <option key={d.id} value={d.id}>
+                {d.flag} {d.country} — {d.city}
+              </option>
+            ))}
+          </select>
         </div>
 
         {/* Desktop Navigation Tabs */}

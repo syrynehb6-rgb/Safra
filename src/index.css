@@ -236,7 +236,7 @@ dialog::backdrop {
 .app-shell {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0.85rem 1rem 5.5rem;
+  padding: calc(env(safe-area-inset-top, 0px) + 0.75rem) 0.9rem calc(env(safe-area-inset-bottom, 0px) + 5.75rem);
 }
 
 @media (min-width: 768px) {
@@ -246,18 +246,24 @@ dialog::backdrop {
 }
 
 .glass-header {
-  position: sticky;
-  top: 0.65rem;
+  position: relative;
   z-index: 40;
-  background: color-mix(in srgb, var(--surface) 84%, transparent);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
   backdrop-filter: blur(22px) saturate(165%);
   border: 1px solid color-mix(in srgb, var(--border) 80%, rgba(255, 255, 255, 0.18));
-  border-radius: 22px;
-  padding: 0.72rem 1.2rem;
+  border-radius: 20px;
+  padding: 0.65rem 0.95rem;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
     0 10px 32px rgb(2 8 23 / 0.08);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .glass-header {
+    position: sticky;
+    top: 0.65rem;
+  }
 }
 
 .desktop-tabs {
@@ -266,7 +272,7 @@ dialog::backdrop {
 
 .bottom-nav {
   position: fixed;
-  bottom: 0.65rem;
+  bottom: max(0.55rem, env(safe-area-inset-bottom, 0px));
   left: 0.75rem;
   right: 0.75rem;
   z-index: 50;
@@ -275,7 +281,7 @@ dialog::backdrop {
   gap: 0.25rem;
   padding: 0.45rem 0.5rem;
   border-radius: 24px;
-  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
   backdrop-filter: blur(24px) saturate(175%);
   border: 1px solid color-mix(in srgb, var(--border) 75%, rgba(255, 255, 255, 0.2));
   box-shadow:
