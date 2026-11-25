@@ -134,7 +134,9 @@ export const SuperAppToolkit: React.FC<SuperAppToolkitProps> = ({
         <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--muted)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
           <Sparkles size={14} color="var(--primary)" /> BOÎTE À OUTILS VOYAGEUR PRO ({destination.city.toUpperCase()})
         </span>
-        <span className="badge badge-success" style={{ fontSize: '0.7rem' }}>● Prêt Hors-Ligne</span>
+        <span className="badge badge-success" style={{ fontSize: '0.7rem' }}>
+          <span className="live-dot" aria-hidden="true" /> Prêt Hors-Ligne
+        </span>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '0.65rem' }}>

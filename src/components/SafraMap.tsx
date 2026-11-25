@@ -122,8 +122,8 @@ export const SafraMap: React.FC<SafraMapProps> = ({
             <MapIcon size={18} />
           </span>
           <div>
-            <strong style={{ fontSize: '1.02rem' }}>
-              Carte Interactive — {cityLabel}
+            <strong style={{ fontSize: '1.02rem', display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}>
+              Carte Interactive — {cityLabel} <span className="live-dot" aria-hidden="true" />
             </strong>
             <div style={{ fontSize: '0.78rem', color: 'var(--muted)' }}>
               Clique sur un marqueur pour voir les détails et l’itinéraire
