@@ -4,6 +4,9 @@ const config: CapacitorConfig = {
   appId: 'com.safra.travel',
   appName: 'SAFRA',
   webDir: 'dist',
+  ios: {
+    contentInset: 'always',
+  },
   server: {
     androidScheme: 'https',
   },
