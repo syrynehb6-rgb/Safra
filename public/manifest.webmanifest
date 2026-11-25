@@ -1,0 +1,17 @@
+{
+  "name": "SAFRA — World Travel & Trust",
+  "short_name": "SAFRA",
+  "description": "Voyages, Compagnons, Bagages 1kg+, Boutiques, Métiers & Smart Tag",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070d19",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

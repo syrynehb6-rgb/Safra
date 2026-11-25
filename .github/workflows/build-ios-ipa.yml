@@ -1,0 +1,51 @@
+name: Build Safra iOS IPA (Sideloadly)
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build-ipa:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies & build web app
+        run: |
+          npm ci
+          npm run build
+
+      - name: Sync Capacitor iOS
+        run: npx cap sync ios
+
+      - name: Build unsigned iOS app
+        run: |
+          cd ios/App
+          xcodebuild \
+            -project App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            CONFIGURATION_BUILD_DIR=build
+
+      - name: Package Safra.ipa
+        run: |
+          mkdir -p Payload
+          cp -r ios/App/build/App.app Payload/App.app
+          zip -r Safra.ipa Payload
+
+      - name: Upload Safra.ipa Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Safra-iOS-IPA
+          path: Safra.ipa
