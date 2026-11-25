@@ -17,37 +17,55 @@ export const SafraLogo: React.FC<SafraLogoProps> = ({ size = 44, showText = true
         aria-hidden="true"
       >
         <defs>
-          <linearGradient id="safraLogoBg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#0ea5e9" />
-            <stop offset="55%" stopColor="#2563eb" />
-            <stop offset="100%" stopColor="#f59e0b" />
+          <linearGradient id="safraProBg" x1="4" y1="2" x2="60" y2="62" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#0f172a" />
+            <stop offset="52%" stopColor="#0369a1" />
+            <stop offset="100%" stopColor="#0ea5e9" />
           </linearGradient>
-          <linearGradient id="safraRing" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#fde68a" stopOpacity="0.35" />
+          <linearGradient id="safraGold" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#fde68a" />
+            <stop offset="55%" stopColor="#f59e0b" />
+            <stop offset="100%" stopColor="#ea580c" />
           </linearGradient>
         </defs>
 
-        <rect width="64" height="64" rx="18" fill="url(#safraLogoBg)" />
+        {/* Rounded App Icon Base */}
+        <rect width="64" height="64" rx="18" fill="url(#safraProBg)" />
+        <rect x="1.5" y="1.5" width="61" height="61" rx="16.5" stroke="white" strokeOpacity="0.16" strokeWidth="1.5" />
 
-        {/* Rotating orbital compass ring */}
+        {/* Subtle Globe Latitude & Longitude */}
+        <circle cx="32" cy="33" r="18" stroke="white" strokeOpacity="0.22" strokeWidth="1.5" />
+        <ellipse cx="32" cy="33" rx="9" ry="18" stroke="white" strokeOpacity="0.18" strokeWidth="1.3" />
+        <path d="M14.5 33H49.5" stroke="white" strokeOpacity="0.18" strokeWidth="1.3" />
+
+        {/* Rotating Golden Orbital Ring (Global Connection & Trust) */}
         <g className="logo-orbit">
           <circle
             cx="32"
-            cy="32"
-            r="21"
-            stroke="url(#safraRing)"
-            strokeWidth="2"
-            strokeDasharray="6 5"
+            cy="33"
+            r="22.5"
+            stroke="url(#safraGold)"
+            strokeWidth="1.8"
+            strokeDasharray="10 6"
+            strokeLinecap="round"
           />
-          <circle cx="32" cy="11" r="2.6" fill="#fde68a" />
+          <circle cx="32" cy="10.5" r="2.6" fill="#fde68a" />
         </g>
 
-        {/* Floating airplane */}
+        {/* Location Pin + Compass Core */}
+        <path
+          d="M32 18C25.9 18 21 22.9 21 29C21 37.2 32 48.5 32 48.5C32 48.5 43 37.2 43 29C43 22.9 38.1 18 32 18Z"
+          fill="white"
+          fillOpacity="0.14"
+          stroke="white"
+          strokeWidth="1.8"
+        />
+
+        {/* Sleek Ascending Jet / Compass Needle */}
         <g className="logo-plane">
           <path
-            d="M46.5 17.5L28 30L19.5 26.8L15.5 30.2L24.2 35.4L21 44.5L25.2 46.2L31.4 38.2L41.2 43.8L44.2 39.8L36.2 32.8L46.5 17.5Z"
-            fill="#ffffff"
+            d="M42.5 18.5L28.5 28.2L22.2 26.2L19.5 28.6L26.2 32.4L24.2 39.2L27.2 40.5L31.4 34.4L38.6 38.2L40.8 35.4L34.8 30.2L42.5 18.5Z"
+            fill="url(#safraGold)"
           />
         </g>
       </svg>
@@ -58,7 +76,7 @@ export const SafraLogo: React.FC<SafraLogoProps> = ({ size = 44, showText = true
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 700,
-              fontSize: '1.35rem',
+              fontSize: '1.38rem',
               letterSpacing: '-0.03em',
               background: 'linear-gradient(135deg, var(--primary), #f59e0b)',
               WebkitBackgroundClip: 'text',
@@ -67,8 +85,8 @@ export const SafraLogo: React.FC<SafraLogoProps> = ({ size = 44, showText = true
           >
             SAFRA
           </span>
-          <span style={{ fontSize: '0.7rem', color: 'var(--muted)', fontWeight: 600 }}>
-            WORLD TRAVEL & TRUST
+          <span style={{ fontSize: '0.68rem', color: 'var(--muted)', fontWeight: 700, letterSpacing: '0.06em' }}>
+            GLOBAL TRAVEL ECOSYSTEM
           </span>
         </div>
       )}
